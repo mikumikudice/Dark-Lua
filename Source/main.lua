@@ -622,7 +622,7 @@ math.randomseed(os.time())
 --Set terminal color --
 os.execute('color 3')
 
-io.write('Copyright(c) 2019 Mateus Morais Dias (mateusmoraisdias3@gmail.com)\nby BinaryBrain_ all rights reserved.\n\nGame version : 1.0\n')
+io.write('Copyright(c) 2020 Mateus Morais Dias (mateusmoraisdias3@gmail.com)\nby BinaryBrain_ all rights reserved.\n\nGame version : 1.0\n')
 game = question('New game  (0)\nLoad game (1)\nchoice', {'0', '1'})
 
 -- Load game --
