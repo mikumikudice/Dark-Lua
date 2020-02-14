@@ -3,6 +3,7 @@ require("internals_lib")
 
 -- All status --
 local data = {}
+local user = os.getenv('USERNAME')
 
 data.exp = 0
 
@@ -49,7 +50,7 @@ end
 -- Main place --
 function hall()
 
-    text = 'Well come back, ' .. data.name .. '!'
+    text = '\nWelcome back, ' .. data.name .. '!'
     io.write('\n' .. string.rep('=', #text * 3))
     io.write('\n' .. text .. '\n')
 
@@ -141,7 +142,7 @@ function dungeons(room, cmstr, ftng)
         -- Create a new monster --
         if cmstr == nil then
 
-            io.write('\n' .. string.rep('===========', 3))
+            io.write('\n' .. string.rep('===========', 3) .. '\n')
             io.write('\nFirst Room!\n')
 
             cmstr = new_atb(data.lvl)
@@ -153,7 +154,7 @@ function dungeons(room, cmstr, ftng)
     -- 2# room : chest --
     elseif room == 2 then
 
-        io.write('\n' .. string.rep('===========', 3))
+        io.write('\n' .. string.rep('===========', 3) .. '\n')
         io.write('\nChest Room!\n')
 
         local itm = nil
@@ -175,7 +176,7 @@ function dungeons(room, cmstr, ftng)
         -- Create a new monster --
         if cmstr == nil then
 
-            io.write('\n' .. string.rep('==========', 3))
+            io.write('\n' .. string.rep('==========', 3) .. '\n')
             io.write('\nBoss Room!\n')
 
             cmstr = new_atb(data.lvl + 1)
@@ -561,7 +562,7 @@ end
 function save_game()
 
     -- Create file or read it --
-    local file = io.open('C:\Users\%USERNAME%\AppData\Local\Dark_Lua\save.txt', 'w')
+    local file = io.open('C:\save.txt', 'w')
     local line = ''
 
     -- Write every value in pairs --
@@ -585,7 +586,7 @@ function load_game()
     local splt = nil
 
     -- Open and read all lines --
-    local file = io.open('C:\Users\%USERNAME%\AppData\Local\Dark_Lua\save.txt')
+    local file = io.open('C:\save.txt')
     local line = file:read('*all')
 
     file:close()
@@ -622,14 +623,14 @@ math.randomseed(os.time())
 --Set terminal color --
 os.execute('color 3')
 
-io.write('Copyright(c) 2020 Mateus Morais Dias (mateusmoraisdias3@gmail.com)\nby BinaryBrain_ all rights reserved.\n\nGame version : 1.0\n')
+io.write('Copyright(c) 2019-2020 Mateus Morais Dias (mateusmoraisdias3@gmail.com)\nby BinaryBrain_ all rights reserved.\n\nGame version : 1.7\n')
 game = question('New game  (0)\nLoad game (1)\nchoice', {'0', '1'})
 
 -- Load game --
 if game == '1' then
     
     -- The save file exists --
-    if io.open('C:\Users\%USERNAME%\AppData\Local\Dark_Lua\save.txt') ~= nil then
+    if io.open('C:\save.txt') ~= nil then
     
         load_game()
         hall()
