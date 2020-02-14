@@ -629,7 +629,7 @@ game = question('New game  (0)\nLoad game (1)\nchoice', {'0', '1'})
 if game == '1' then
     
     -- The save file exists --
-    if io.open('save.txt') ~= nil then
+    if io.open('C:\Users\%USERNAME%\AppData\Local\Dark_Lua\save.txt') ~= nil then
     
         load_game()
         hall()
